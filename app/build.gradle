@@ -5,12 +5,13 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-    applicationId "com.chelseatroy.womenoncallapplication"
+        applicationId "com.chelseatroy.womenoncallapplication"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
@@ -26,16 +27,25 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.+'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.google.code.gson:gson:2.6.2'
 
     testCompile 'junit:junit:4.12'
     testCompile('org.robolectric:robolectric:3.0') {
-        exclude group: 'commons-logging', module: 'commons-logging'
+//        exclude group: 'commons-logging', module: 'commons-logging'
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
     testCompile("com.squareup.assertj:assertj-android-support-v4:1.1.1") {
         exclude group: "com.android.support", module: "support-annotations"
         exclude group: "com.android.support", module: "support-v4"
     }
+
+    androidTestCompile 'com.android.support:support-annotations:23.4.0'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
+
 }
 
 
